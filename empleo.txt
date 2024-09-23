@@ -1,0 +1,16 @@
+# Use a pipeline as a high-level helper
+from transformers import pipeline
+
+pipe = pipeline("text2text-generation", model="OMARS200/Traductor")
+
+
+
+# Load model directly
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+
+tokenizer = AutoTokenizer.from_pretrained("OMARS200/Traductor")
+model = AutoModelForSeq2SeqLM.from_pretrained("OMARS200/Traductor")
+
+
+https://huggingface.co/OMARS200/Traductor
+
