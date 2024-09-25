@@ -1,7 +1,4 @@
-import ollama
 import PyPDF2
-import os
-
 
 def crearTxt(numero, texto):  
     """
