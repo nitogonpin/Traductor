@@ -43,6 +43,7 @@ def extraerTexto(pdf):
     # Crear un objeto de lectura de PDF
     pdfReader = PyPDF2.PdfReader(f)
     # Iterar sobre las paginas del PDF
+    # Extraer el texto de cada pagina         
     for page in pdfReader.pages:
       texto = page.extract_text()
       crearTxt(contador, texto)

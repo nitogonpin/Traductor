@@ -32,6 +32,7 @@ def main():
     # Iterar sobre la carpeta y sus subcarpetas
     for root, dirs, files in os.walk(ruta_origen):
         # Iterar sobre los archivos de cada carpeta
+        
         for file in files:
             texto_a_insertar = ""
             # Verificar si el archivo es un archivo de texto
