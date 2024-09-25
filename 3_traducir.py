@@ -29,23 +29,32 @@ def main():
     cada archivo. Luego, guardar el resultado en una carpeta
     diferente.
     """
+    # Iterar sobre la carpeta y sus subcarpetas
     for root, dirs, files in os.walk(ruta_origen):
+        # Iterar sobre los archivos de cada carpeta
         for file in files:
             texto_a_insertar = ""
+            # Verificar si el archivo es un archivo de texto
+
             if file.endswith('.txt'):
+                # Conformar la ruta del archivo actual
                 file_path = os.path.join(root, file)
+                # Abrir el archivo en modo de lectura
+
                 with open(file_path, 'r') as f:
+                    # Leer el contenido del archivo en una lista
                     texto = f.readlines()
+                    # Iterar sobre cada l nea del archivo
+                    
                     for linea in texto:
-                        # Hacer una solicitud a la API de traduccion de Ollama
-                        # y guardar el resultado en la variable traducion
+                        # Llamar a la función traducir para traducir la línea actual
                         traducion = traducir(linea)
                         # Imprimir el resultado para depurar
                         print(traducion)
                         # Agregar el resultado a la variable texto_a_insertar
                         texto_a_insertar += traducion
 
-                # Abrir el archivo en la carpeta de destino
+                # Abrir el archivo en la carpeta de destino en modo de escritura
                 with open(os.path.join(ruta_destino, file), 'w') as f:
                     # Escribir el resultado en el archivo
                     f.write(texto_a_insertar)
